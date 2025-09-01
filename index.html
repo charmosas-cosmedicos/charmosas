@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charmosas Cosméticos - Loja Online Oficial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body class="bg-gray-50">
+    <!-- Notification -->
+    <div id="notification" class="notification bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg">
+        <div class="flex items-center">
+            <span class="mr-2">✅</span>
+            <span id="notification-text">Produto adicionado ao carrinho!</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <!-- Top Bar -->
+            <div class="flex justify-between items-center py-2 text-sm text-gray-600 border-b">
+                <div class="flex space-x-4">
+                    <span>📞 (41) 984109261</span>
+                    <span>✉️ contato@charmosascosmeticos.com.br</span>
+                </div>
+                <div class="flex space-x-4">
+                    <span>🚚 Frete grátis acima de R$ 100</span>
+                    <span>💳 Até 12x sem juros</span>
+                </div>
+            </div>
+            
+            <!-- Main Header -->
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">✨ Charmosas Cosméticos</h1>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-lg mx-8 relative">
+                    <input 
+                        type="text" 
+                        id="searchInput"
+                        placeholder="Buscar produtos..." 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    >
+                    <button class="absolute right-3 top-2.5 text-gray-400 hover:text-pink-500">
+                        🔍
+                    </button>
+                    <div id="searchResults" class="search-results hidden"></div>
+                </div>
+                
+                <!-- User Actions -->
+                <div class="flex items-center space-x-4">
+                    <button id="accountBtn" class="flex items-center space-x-1 text-gray-600 hover:text-pink-500 transition-colors">
+                        <span>👤</span>
+                        <span class="hidden md:inline" id="accountText">Minha Conta</span>
+                    </button>
+                    <button class="flex items-center space-x-1 text-gray-600 hover:text-pink-500 transition-colors">
+                        <span>❤️</span>
+                        <span class="hidden md:inline">Favoritos</span>
+                        <span class="bg-pink-500 text-white text-xs rounded-full px-2 py-1" id="favCount">0</span>
+                    </button>
+                    <button id="cartBtn" class="flex items-center space-x-1 text-gray-600 hover:text-pink-500 transition-colors">
+                        <span>🛒</span>
+                        <span class="hidden md:inline">Carrinho</span>
+                        <span class="bg-pink-500 text-white text-xs rounded-full px-2 py-1" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="py-3 border-t">
+                <div class="flex justify-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Início</a>
+                    <a href="#paletas" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Paletas</a>
+                    <a href="#rimel" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Rímel</a>
+                    <a href="#skincare" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Skincare</a>
+                    <a href="#batons" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Batons</a>
+                    <a href="#bases" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Bases</a>
+                    <a href="#ofertas" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Ofertas</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Account Modal -->
+    <div id="accountModal" class="modal">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold" id="accountModalTitle">Entrar na Conta</h3>
+                <button id="closeAccountModal" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+            </div>
+            
+            <!-- Login Form -->
+            <div id="loginForm">
+                <div class="space-y-4 mb-6">
+                    <input type="email" id="loginEmail" placeholder="E-mail" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <input type="password" id="loginPassword" placeholder="Senha" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                </div>
+                
+                <button id="loginBtn" class="w-full bg-pink-500 text-white py-3 rounded-lg hover:bg-pink-600 transition-colors mb-4">
+                    Entrar
+                </button>
+                
+                <div class="text-center">
+                    <p class="text-gray-600 mb-2">Não tem conta?</p>
+                    <button id="showRegisterBtn" class="text-pink-500 hover:text-pink-600 font-semibold">
+                        Criar Conta Grátis
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Register Form -->
+            <div id="registerForm" class="hidden">
+                <div class="space-y-4 mb-6">
+                    <input type="text" id="registerName" placeholder="Nome completo" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <input type="email" id="registerEmail" placeholder="E-mail" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <input type="tel" id="registerPhone" placeholder="Telefone" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <input type="password" id="registerPassword" placeholder="Senha" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <input type="password" id="registerConfirmPassword" placeholder="Confirmar senha" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    
+                    <label class="flex items-center">
+                        <input type="checkbox" id="agreeTerms" class="mr-2">
+                        <span class="text-sm text-gray-600">Aceito os <a href="#" class="text-pink-500">termos de uso</a> e <a href="#" class="text-pink-500">política de privacidade</a></span>
+                    </label>
+                </div>
+                
+                <button id="registerBtn" class="w-full bg-pink-500 text-white py-3 rounded-lg hover:bg-pink-600 transition-colors mb-4">
+                    Criar Conta
+                </button>
+                
+                <div class="text-center">
+                    <p class="text-gray-600 mb-2">Já tem conta?</p>
+                    <button id="showLoginBtn" class="text-pink-500 hover:text-pink-600 font-semibold">
+                        Fazer Login
+                    </button>
+                </div>
+            </div>
+            
+            <!-- User Dashboard -->
+            <div id="userDashboard" class="hidden">
+                <div class="text-center mb-6">
+                    <div class="text-6xl mb-4">👤</div>
+                    <h4 class="text-xl font-bold" id="userName">Bem-vindo!</h4>
+                    <p class="text-gray-600" id="userEmail"></p>
+                </div>
+                
+                <div class="space-y-3">
+                    <button class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                        📦 Meus Pedidos
+                    </button>
+                    <button class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                        📍 Meus Endereços
+                    </button>
+                    <button class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                        ⚙️ Configurações
+                    </button>
+                    <button id="logoutBtn" class="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-600 transition-colors">
+                        🚪 Sair
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-5xl font-bold mb-6">Desperte Sua Beleza Natural</h2>
+                    <p class="text-xl mb-8 text-pink-100">Produtos premium de maquiagem e skincare com qualidade internacional e preços acessíveis</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-white text-pink-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-pink-50 transition-colors">
+                            Ver Coleção Completa
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-pink-600 transition-colors">
+                            Ofertas Especiais
+                        </button>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="text-8xl mb-4">💄</div>
+                    <div class="grid grid-cols-3 gap-4 max-w-sm mx-auto">
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center">
+                            <div class="text-2xl mb-2">🎨</div>
+                            <div class="text-sm">+500 Produtos</div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center">
+                            <div class="text-2xl mb-2">⭐</div>
+                            <div class="text-sm">5 Estrelas</div>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center">
+                            <div class="text-2xl mb-2">🚚</div>
+                            <div class="text-sm">Entrega Rápida</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="py-8 bg-white border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn filter-active px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="all">
+                    Todos os Produtos
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="paletas">
+                    Paletas
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="rimel">
+                    Rímel
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="skincare">
+                    Skincare
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="batons">
+                    Batons
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="bases">
+                    Bases
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="ofertas">
+                    Em Oferta
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Nossos Produtos</h2>
+                <p class="text-gray-600">Descubra nossa coleção completa de produtos de beleza</p>
+            </div>
+            
+            <div id="productsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <button id="loadMoreBtn" class="bg-pink-500 text-white px-8 py-3 rounded-full hover:bg-pink-600 transition-colors">
+                    Carregar Mais Produtos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="bg-white rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Carrinho de Compras</h3>
+                <button id="closeCartModal" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+            </div>
+            
+            <div id="cartItems" class="space-y-4 mb-6">
+                <!-- Cart items will be loaded here -->
+            </div>
+            
+            <div class="border-t pt-6">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-semibold">Total:</span>
+                    <span id="cartTotal" class="text-2xl font-bold text-pink-600">R$ 0,00</span>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <button id="clearCartBtn" class="bg-gray-500 text-white py-3 rounded-full hover:bg-gray-600 transition-colors">
+                        Limpar Carrinho
+                    </button>
+                    <button id="checkoutBtn" class="bg-pink-500 text-white py-3 rounded-full hover:bg-pink-600 transition-colors">
+                        Finalizar Compra
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="bg-white rounded-2xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Finalizar Compra</h3>
+                <button id="closeCheckoutModal" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Customer Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Dados Pessoais</h4>
+                    <div class="space-y-4">
+                        <input type="text" id="checkoutName" placeholder="Nome completo" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <input type="email" id="checkoutEmail" placeholder="E-mail" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <input type="tel" placeholder="Telefone" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <input type="text" placeholder="CPF" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold mb-4 mt-8">Endereço de Entrega</h4>
+                    <div class="space-y-4">
+                        <input type="text" placeholder="CEP" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <input type="text" placeholder="Endereço" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" placeholder="Número" class="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <input type="text" placeholder="Complemento" class="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        </div>
+                        <input type="text" placeholder="Bairro" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" placeholder="Cidade" class="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                            <select class="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                                <option>Estado</option>
+                                <option>SP</option>
+                                <option>RJ</option>
+                                <option>MG</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resumo do Pedido</h4>
+                    <div id="checkoutItems" class="space-y-3 mb-6">
+                        <!-- Checkout items will be loaded here -->
+                    </div>
+                    
+                    <div class="border-t pt-4 space-y-2">
+                        <div class="flex justify-between">
+                            <span>Subtotal:</span>
+                            <span id="checkoutSubtotal">R$ 0,00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Frete:</span>
+                            <span id="checkoutShipping">R$ 15,90</span>
+                        </div>
+                        <div class="flex justify-between text-lg font-bold border-t pt-2">
+                            <span>Total:</span>
+                            <span id="checkoutTotal">R$ 0,00</span>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-lg font-semibold mb-4 mt-8">Forma de Pagamento</h4>
+                    <div class="space-y-3">
+                        <label class="flex items-center">
+                            <input type="radio" name="payment" value="credit" class="mr-3">
+                            <span>💳 Cartão de Crédito</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="payment" value="debit" class="mr-3">
+                            <span>💳 Cartão de Débito</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="payment" value="pix" class="mr-3">
+                            <span>📱 PIX</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="payment" value="boleto" class="mr-3">
+                            <span>📄 Boleto Bancário</span>
+                        </label>
+                    </div>
+                    
+                    <button id="confirmOrderBtn" class="w-full bg-pink-500 text-white py-4 rounded-lg hover:bg-pink-600 transition-colors mt-6 text-lg font-semibold">
+                        Confirmar Pedido
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-6 gradient-bg bg-clip-text text-transparent">✨ Charmosas Cosméticos</h3>
+                    <p class="text-gray-300 mb-4">Sua beleza é nossa inspiração. Produtos de qualidade premium para realçar o que há de melhor em você.</p>
+                    <div class="flex space-x-4">
+                        <span class="text-2xl cursor-pointer hover:text-pink-400">📱</span>
+                        <span class="text-2xl cursor-pointer hover:text-pink-400">💌</span>
+                        <span class="text-2xl cursor-pointer hover:text-pink-400">📸</span>
+                        <span class="text-2xl cursor-pointer hover:text-pink-400">🎵</span>
+                    </div>
+                </div>l
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-pink-400">Produtos</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Paletas de Maquiagem</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Rímel & Máscaras</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Skincare Completo</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Batons & Glosses</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Bases & Corretivos</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-pink-400">Atendimento</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Central de Ajuda</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Trocas e Devoluções</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Termos de Uso</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-pink-400">Contato</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <div class="flex items-center">
+                            <span class="mr-3">📞</span>
+                            <span>(41) 984109261</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-3">✉️</span>
+                            <span>contato@charmosascosmeticos.com.br</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-3">📍</span>
+                            <span>São Paulo, SP - Brasil</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-3">🕒</span>
+                            <span>Seg-Sex: 8h às 18h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400">&copy; 2024 Charmosas Cosméticos. Todos os direitos reservados.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <span class="text-gray-400">🔒 Compra Segura</span>
+                        <span class="text-gray-400">📦 Entrega Garantida</span>
+                        <span class="text-gray-400">⭐ Satisfação 100%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!--Ocódigo do arquivo main.js estava aqui-->
+  <script src="main.js"></script>
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97847bd4e6ad544d',t:'MTc1NjcyNjczMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97847bd4e6ad544d',t:'MTc1NjcyNjczMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
