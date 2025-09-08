@@ -2,12 +2,16 @@
         const products = [
             // Paletas (5 produtos)
             {
-                id: 1,
-                name: "Paleta Pôr do Sol",
-                category: "paletas",
-                price: 49.90,
-                originalPrice: 119.90,
-                image: "paletasol.webp",
+            
+                
+    id: 1,
+    name: "Paleta Pôr do Sol",
+    category: "paletas",
+    price: 49.90,
+    originalPrice: 119.90,
+    image: "",
+
+    
                 colors: ["#ff6b9d", "#ff8a80", "#ffab91", "#ffcc02", "#ff5722"],
                 description: "Paleta com 12 cores vibrantes para looks ousados",
                 rating: 4.8,
@@ -20,7 +24,7 @@
                 name: "Paleta Sonhos da Meia-Noite",
                 category: "paletas",
                 price: 95.90,
-                image: "🌙",
+                image: "",
                 colors: ["#673ab7", "#3f51b5", "#2196f3", "#9c27b0", "#1a1a1a"],
                 description: "Tons escuros e metálicos para looks noturnos",
                 rating: 4.9,
