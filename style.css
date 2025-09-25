@@ -1,106 +1,129 @@
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #ec4899, #be185d, #7c3aed, #5b21b6);
-            background-size: 400% 400%;
-            animation: gradientShift 10s ease infinite;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-        
-        .palette-color {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: inline-block;
-            margin: 1px;
-            border: 2px solid white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-        }
-        
-        .notification.show {
-            transform: translateX(0);
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 2000;
-            backdrop-filter: blur(4px);
-        }
-        
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #ec4899;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .search-results {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-raditailwindcssus: 0.5rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            max-height: 300px;
-            overflow-y: auto;
-            z-index: 100;
-        }
-        
-        .filter-active {
-            background: #ec4899 !important;
-            color: white !important;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-        .user-logged-in {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-        }
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* fundo animado do hero/logo */
+.gradient-bg {
+  background: linear-gradient(135deg, #ec4899, #be185d, #7c3aed, #5b21b6);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* cards */
+.card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+}
+
+/* paleta de cores nos cards */
+.palette-color {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 1px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* toast */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  transform: translateX(400px);
+  transition: transform 0.3s ease;
+}
+.notification.show { transform: translateX(0); }
+
+/* modais */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 2000;
+  backdrop-filter: blur(4px);
+}
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* loading spinner */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #ec4899;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* resultados da busca no header */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0; right: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;            /* <-- corrigido */
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+/* estado do filtro ativo */
+.filter-active {
+  background: #ec4899 !important;
+  color: #fff !important;
+}
+
+/* botão "Minha Conta" logado */
+.user-logged-in {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #fff;
+}
+
+/* links do menu desktop (sem @apply) */
+.nav-link {
+  color: #374151;           /* gray-700 */
+  font-weight: 600;
+  transition: color .2s;
+}
+.nav-link:hover { color: #ec4899; } /* pink-500 */
+
+/* pílulas do menu mobile */
+.nav-pill {
+  display: inline-block;
+  padding: .5rem 1rem;      /* py-2 px-4 */
+  border: 1px solid #d1d5db;/* gray-300 */
+  border-radius: 9999px;
+  transition: border-color .2s, color .2s;
+  color: #111827;           /* gray-900 */
+  background: #fff;
+  white-space: nowrap;
+}
+.nav-pill:hover { border-color: #ec4899; }
+
+/* esconder barra de rolagem horizontal no mobile menu */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

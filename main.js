@@ -571,13 +571,19 @@ function setupEventListeners() {
             const filter = this.dataset.filter;
             let filteredProducts = products;
 
-            if (filter !== 'all') {
-                if (filter === 'ofertas') {
-                    filteredProducts = products.filter(p => p.isOffer);
-                } else {
-                    filteredProducts = products.filter(p => p.category === filter);
-                }
-            }
+            
+if (filter !== 'all') {
+  if (filter === 'ofertas') {
+    filteredProducts = products.filter(p => !!p.isOffer);
+  } else {
+    filteredProducts = products.filter(p => p.category === filter);
+  }
+}
+
+
+
+
+
 
             renderProducts(filteredProducts);
         });
