@@ -18,79 +18,109 @@
     </div>
 
     <!-- Header -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-4">
-            <!-- Top Bar -->
-            <div class="flex justify-between items-center py-2 text-sm text-gray-600 border-b">
-                <div class="flex space-x-4">
-                    <span>📞 (41) 984109261</span>
-                    <span>✉️ contato@charmosascosmeticos.com.br</span>
-                </div>
-                <div class="flex space-x-4">
-                    <span>🚚 Frete grátis acima de R$ 100</span>
-                    <span>💳 Até 10x sem juros</span>
-                </div>
-            </div>
-            
-            <!-- Main Header -->
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <h1 class="text-2xl font-bold gradient-bg bg-clip-text text-transparent">✨ Charmosas Cosméticos</h1>
-                </div>
-                
-                <!-- Search Bar -->
-                <div class="flex-1 max-w-lg mx-8 relative">
-                    <input 
-                        type="text" 
-                        id="searchInput"
-                        placeholder="Buscar produtos..." 
-                        class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                    >
-                    <button class="absolute right-3 top-2.5 text-gray-400 hover:text-pink-500">
-                        🔍
-                    </button>
-                    <div id="searchResults" class="search-results hidden"></div>
-                </div>
-                
-                <!-- User Actions -->
-                <div class="flex items-center space-x-4">
-                    <button id="accountBtn" class="flex items-center space-x-1 text-gray-600 hover:text-pink-500 transition-colors">
-                        <span>👤</span>
-                        <span class="hidden md:inline" id="accountText">Minha Conta</span>
-                    </button>
-                    <button class="flex items-center space-x-1 text-gray-600 hover:text-pink-500 transition-colors">
-  <button class="flex items-center space-x-1 text-gray-600 hover:text-pink-500 transition-colors">
-    <span>❤️</span>
-    <span class="hidden md:inline">Favoritos</span>
-    <span class="bg-pink-500 text-white text-xs rounded-full px-2 py-1" id="favCount">0</span>
-</button>
-              </button>
-                    <button id="cartBtn" class="flex items-center space-x-1 text-gray-600 hover:text-pink-500 transition-colors">
-                        <span>🛒</span>
-                        <span class="hidden md:inline">Carrinho</span>
-                        <span class="bg-pink-500 text-white text-xs rounded-full px-2 py-1" id="cartCount">0</span>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Navigation -->
-            <nav class="py-3 border-t">
-                <div class="flex justify-center space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Início</a>
-                    <a href="#paletas" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Paletas</a>
-                    <a href="#rimel" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Rímel</a>
-                    <a href="#skincare" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Skincare</a>
-                    <a href="#gloss" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">gloss</a>
-                    <a href="#bases" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Bases</a>
-                     <a href="#perfume" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">perfume</a>
-                     <a href="#hidratante" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">hidratante</a>
-                       <a href="#acessórios" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">acessórios</a>
-                     
-                    <a href="#ofertas" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Ofertas</a>
-                </div>
-            </nav>
+    
+<header class="bg-white shadow-lg sticky top-0 z-50">
+  <div class="container mx-auto px-4">
+    <!-- Top Bar (esconde no mobile) -->
+    <div class="hidden md:flex justify-between items-center py-2 text-sm text-gray-600 border-b">
+      <div class="flex gap-4">
+        <span>📞 (41) 984109261</span>
+        <span>✉️ contato@charmosascosmeticos.com.br</span>
+      </div>
+      <div class="flex gap-4">
+        <span>🚚 Frete grátis acima de R$ 100</span>
+        <span>💳 Até 10x sem juros</span>
+      </div>
+    </div>
+
+    <!-- Main Header -->
+    <div class="flex items-center justify-between py-4 gap-3">
+      <!-- Botão menu (mobile) + Logo -->
+      <div class="flex items-center gap-3">
+        <button id="menuToggleBtn"
+                class="md:hidden text-2xl text-gray-700 hover:text-pink-500"
+                aria-label="Abrir menu">
+          ☰
+        </button>
+        <h1 class="text-xl sm:text-2xl font-bold gradient-bg bg-clip-text text-transparent">
+          ✨ Charmosas Cosméticos
+        </h1>
+      </div>
+
+      <!-- Busca (some no mobile para não esmagar) -->
+      <div class="hidden md:block flex-1 max-w-lg mx-4 relative">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Buscar produtos..."
+          class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+        <button class="absolute right-3 top-2.5 text-gray-400 hover:text-pink-500" aria-label="Buscar">
+          🔍
+        </button>
+        <div id="searchResults" class="search-results hidden"></div>
+      </div>
+
+      <!-- Ações do usuário -->
+      <div class="flex items-center gap-3">
+        <button id="accountBtn" class="flex items-center gap-1 text-gray-600 hover:text-pink-500 transition-colors">
+          <span>👤</span><span class="hidden md:inline" id="accountText">Minha Conta</span>
+        </button>
+
+        <!-- Favoritos (sem aninhar <button>) -->
+        <button id="favBtn" class="flex items-center gap-1 text-gray-600 hover:text-pink-500 transition-colors">
+          <span>❤️</span><span class="hidden md:inline">Favoritos</span>
+          <span id="favCount" class="bg-pink-500 text-white text-xs rounded-full px-2 py-0.5">0</span>
+        </button>
+
+        <button id="cartBtn" class="flex items-center gap-1 text-gray-600 hover:text-pink-500 transition-colors">
+          <span>🛒</span><span class="hidden md:inline">Carrinho</span>
+          <span id="cartCount" class="bg-pink-500 text-white text-xs rounded-full px-2 py-0.5">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navegação -->
+    <!-- Mobile: barra rolável; Desktop: centralizada -->
+    <nav class="py-3 border-t">
+      <div class="hidden md:flex justify-center gap-8">
+        <a href="#home" class="nav-link">Início</a>
+        <a href="#paletas" class="nav-link">Paletas</a>
+        <a href="#rimel" class="nav-link">Rímel</a>
+        <a href="#skincare" class="nav-link">Skincare</a>
+        <a href="#gloss" class="nav-link">Gloss</a>
+        <a href="#bases" class="nav-link">Bases</a>
+        <a href="#perfume" class="nav-link">Perfume</a>
+        <a href="#hidratante" class="nav-link">Hidratante</a>
+        <a href="#acessorios" class="nav-link">Acessórios</a>
+        <a href="#ofertas" class="nav-link">Ofertas</a>
+      </div>
+
+      <!-- Mobile menu colapsável -->
+      <div id="mobileNav"
+           class="md:hidden hidden">
+        <div class="flex gap-4 overflow-x-auto whitespace-nowrap py-2 no-scrollbar">
+          <a href="#home" class="nav-pill">Início</a>
+          <a href="#paletas" class="nav-pill">Paletas</a>
+          <a href="#rimel" class="nav-pill">Rímel</a>
+          <a href="#skincare" class="nav-pill">Skincare</a>
+          <a href="#gloss" class="nav-pill">Gloss</a>
+          <a href="#bases" class="nav-pill">Bases</a>
+          <a href="#perfume" class="nav-pill">Perfume</a>
+          <a href="#hidratante" class="nav-pill">Hidratante</a>
+          <a href="#acessorios" class="nav-pill">Acessórios</a>
+          <a href="#ofertas" class="nav-pill">Ofertas</a>
         </div>
-    </header>
+        <!-- Opcional: busca enxuta no mobile -->
+        <div class="px-1 pb-2">
+          <input type="text" placeholder="Buscar produtos..."
+                 class="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent">
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
 
     <!-- Account Modal -->
     <div id="accountModal" class="modal">
