@@ -10,7 +10,7 @@ const products = [
         price: 49.90,
         originalPrice: 119.90,
         image: "imagens/paletasol.webp",
-        colors: ["#f8f2f4ff", "#ff8a80", "#ffab91", "#ffcc02", "#ff5722"],
+        colors: ["#f8f2f4ff", "#ff8a80", "#d13c0eff", "#ffcc02", "#ff5722"],
         description: "Paleta com 12 cores vibrantes para looks ousados",
         rating: 4.8,
         reviews: 156,
@@ -23,7 +23,7 @@ const products = [
         category: "paletas",
         price: 95.90,
         image: "imagens/noite.jpeg",
-        colors: ["#673ab7", "#3f51b5", "#2196f3", "#9c27b0", "#1a1a1a"],
+        colors: ["#eae8eeff", "#73757eff", "#3c4247ff", "#888688ff", "#1a1a1a"],
         description: "Tons escuros e metálicos para looks noturnos",
         rating: 4.9,
         reviews: 203,
@@ -35,7 +35,7 @@ const products = [
         category: "paletas",
         price: 79.90,
         image: "imagens/natural.webp",
-        colors: ["#8bc34a", "#4caf50", "#009688", "#795548", "#ffc107"],
+        colors: ["#e094b7ff", "#c589a7ff", "#a75384ff", "#c24d7eff", "#ff07c1ff"],
         description: "Cores naturais para um visual fresh e jovem",
         rating: 4.7,
         reviews: 89,
@@ -52,15 +52,28 @@ const products = [
         rating: 4.9,
         reviews: 267,
         inStock: true
+
+    },
+    {
+        id: 4,
+        name: "Paleta purple eudora",
+        category: "paletas",
+        price: 79.90,
+        image: "imagens/paleta5.webp",
+        colors: ["#c530e2ff", "#562d85ff", "#b44ed3ff", "#b57accff", "#8a4892ff"],
+        description: "Tons dourados e bronze para ocasiões especiais",
+        rating: 4.9,
+        reviews: 267,
+        inStock: true
     },
     {
         id: 5,
-        name: "Paleta Cores do Oceano",
-        category: "paletas",
-        price: 92.90,
+        name: "iluminador compacto Mari Maria",
+        category: "iluminador",
+        price: 90.00,
         originalPrice: 115.90,
         image: "imagens/iluminador.webp",
-        colors: ["#00bcd4", "#0097a7", "#006064", "#4fc3f7", "#81d4fa"],
+        colors: ["#d46600ff", "#a7006fff", "#640026ff", "#f74fc5ff", "#fac181ff"],
         description: "Inspirada nas cores do mar e céu",
         rating: 4.6,
         reviews: 134,
@@ -69,12 +82,13 @@ const products = [
     },
 
     // Rímel (5 produtos)
-    {
-        id: 6,
-        name: "Rímel Volume Máximo",
+
+    {    
+        id:6,
+        name: "rimel volume máximo",
         category: "rimel",
         price: 45.90,
-        originalPrice: 59.90,
+        originalprice: 59.90,
         image: "imagens/rimel.webp",
         description: "Máximo volume e definição para seus cílios",
         rating: 4.6,
@@ -83,45 +97,89 @@ const products = [
         isOffer: true
     },
     {
-        id: 7,
-        name: "Rímel À Prova D'Água",
+
+        id:7,
+        name: "rimel volume máximo",
         category: "rimel",
-        price: 52.90,
-        image: "imagens/iluminador.webp",
-        description: "Resistente à água por até 24 horas",
-        rating: 4.8,
-        reviews: 278,
-        inStock: true
+        price: 25.90,
+        originalprice: 45.90,
+        image: "imagens/rimel2.webp",
+        description: "Máximo volume e definição para seus cílios",
+        rating: 4.6,
+        reviews: 312,
+        inStock: true,
+        isOffer: true
     },
     {
-        id: 8,
-        name: "Rímel Alongador",
+        id: 4,
+        name: "rimel mari maria",
         category: "rimel",
+        price: 54.46,
+        originalprice: 100.00,
+        image: "imagens/rimelmari.webp",
+         description: "volume máximo",
+        rating: 4.7,
+        reviews: 267,
+        inStock: true,
+        isOffer: true
+    },   
+    {
+         id: 22,
+        name: "rimel boca rosa",
+        category: "rimel",
+        price: 34.90,
+        originalPrice: 100.00,
+        image: "imagens/bocarosa.jpeg",
+        description: "Cobertura total para imperfeições",
+        rating: 4.7,
+        reviews: 267,
+        inStock: true,
+        isOffer: true
+    },
+    {
+         id: 22,
+        name: "rimel mari maria",
+        category: "rimel",
+        price: 49.90,
+        originalPrice: 100.00,
+        image: "imagens/rimelmari2.webp",
+        description: "volume máximo",
+        rating: 4.7,
+        reviews: 267,
+        inStock: true,
+        isOffer: true
+
+    },
+    {
+
+        id:8,
+        name: "pó compacto",
+        category: "pó",
         price: 48.90,
         image: "imagens/po compacto.webp",
-        description: "Alonga os cílios naturalmente",
+        description: "diversons tons",
         rating: 4.5,
         reviews: 145,
         inStock: true
     },
     {
         id: 9,
-        name: "Rímel Natural",
-        category: "rimel",
-        price: 39.90,
+        name: "infinity wepink",
+        category: "perfume",
+        price: 329.90,
         image: "imagens/perfume1.png",
-        description: "Para um look natural e elegante",
+        description: "um manisfesto de paixão, doçura e empoderamento",
         rating: 4.4,
         reviews: 98,
         inStock: true
     },
     {
         id: 10,
-        name: "Rímel Curvex Pro",
-        category: "rimel",
-        price: 58.90,
+        name: "one touch warm wepink",
+        category: "perfume",
+        price: 84.90,
         image: "imagens/perfume2.webp",
-        description: "Curva e define os cílios perfeitamente",
+        description: "exale confiança sedução e paixão em todos os momentos",
         rating: 4.7,
         reviews: 189,
         inStock: true
@@ -130,21 +188,21 @@ const products = [
     // Skincare (5 produtos)
     {
         id: 11,
-        name: "Gel de Limpeza Facial",
-        category: "skincare",
-        price: 35.90,
+        name: "VF bloom wepink",
+        category: "perfume",
+        price: 84.90,
         image: "imagens/perfume3.jpeg",
-        description: "Remove impurezas suavemente",
+        description: "a beleza no sutil florecer do aroma",
         rating: 4.7,
         reviews: 234,
         inStock: true
     },
     {
         id: 12,
-        name: "Água Micelar",
-        category: "skincare",
-        price: 28.90,
-        originalPrice: 39.90,
+        name: "obsessed deluxe wepink",
+        category: "perfume",
+        price: 84.00,
+        originalPrice: 329.90,
         image: "imagens/perfume4.png",
         description: "Demaquilante suave e eficaz",
         rating: 4.6,
@@ -154,9 +212,9 @@ const products = [
     },
     {
         id: 13,
-        name: "Esfoliante Renovador",
-        category: "skincare",
-        price: 42.90,
+        name: "obsessed esfoliante wepink",
+        category: "hidratante",
+        price: 56.90,
         image: "imagens/esfoliante.webp",
         description: "Promove renovação celular",
         rating: 4.8,
@@ -164,23 +222,67 @@ const products = [
         inStock: true
     },
     {
+        id: 13,
+        name: "love lili",
+        category: "hidratante",
+        price: 139.90,
+        image: "imagens/lovelili.jpg",
+        description: "hiratante corporal",
+        rating: 4.8,
+        reviews: 167,
+        inStock: true
+    },
+    {
+        id: 13,
+        name: "hidratante lili",
+        category: "hidratante",
+        price: 139.90,
+        image: "imagens/lili.webp",
+        description: "hidratante corporal",
+        rating: 4.8,
+        reviews: 167,
+        inStock: true
+    },
+    {
         id: 14,
-        name: "Creme Noturno",
+        name: "myskin essencial espuma wepink",
         category: "skincare",
-        price: 65.90,
+        price: 47.90,
         image: "imagens/espuma.png",
-        description: "Regeneração durante o sono",
+        description: "espuma de esfoliação com efeito peeling para uma pelo bem cuidada",
+        rating: 4.9,
+        reviews: 298,
+        inStock: true
+    },
+    {
+        id: 14,
+        name: "kit creamy skincare",
+        category: "skincare",
+        price: 299.99,
+        image: "imagens/kit.webp",
+        description: "espuma de esfoliação com efeito peeling para uma pelo bem cuidada",
+        rating: 4.9,
+        reviews: 298,
+        inStock: true
+    },
+    {
+        id: 14,
+        name: "gel limpeza facial",
+        category: "skincare",
+        price: 59.90,
+        image: "imagens/gel.webp",
+        description: "espuma de esfoliação com efeito peeling para uma pelo bem cuidada",
         rating: 4.9,
         reviews: 298,
         inStock: true
     },
     {
         id: 15,
-        name: "Hidratante Diário",
-        category: "skincare",
+        name: "Hydracare essencial wepink",
+        category: "hidratante",
         price: 55.90,
         image: "imagens/hydracare.webp",
-        description: "Proteção e hidratação diária",
+        description: "o toque hifratante que faltava na sua skincare!",
         rating: 4.7,
         reviews: 345,
         inStock: true
@@ -190,8 +292,8 @@ const products = [
     {
         id: 16,
         name: "kit body splash e hidratante corporal",
-        category: "batons",
-        price: 32.90,
+        category: "perfume",
+        price: 129.90,
         image: "imagens/kitv.jpeg",
         description: "KIT BODY SPLASH 250ML + HIDRATANTE CORPORAL 236ML PURE SEDUCTION VICTORIA'S SECRET | Exala Perfumaria",
 
@@ -201,10 +303,10 @@ const products = [
     },
     {
         id: 17,
-        name: "Batom Nude Rosé",
-        category: "batons",
-        price: 29.90,
-        originalPrice: 42.90,
+        name: "gloss Nude Rosé",
+        category: "gloss",
+        price: 129.00,
+        originalPrice: 79.90,
         image: "imagens/nudes.jpg",
         description: "Tom nude perfeito para o dia a dia",
         rating: 4.6,
@@ -216,7 +318,7 @@ const products = [
         id: 18,
         name: "love kit",
         category: "batons",
-        price: 24.90,
+        price: 129.90,
         image: "imagens/love kit.webp",
         description: "Brilho natural para os lábios",
         rating: 4.5,
@@ -225,9 +327,9 @@ const products = [
     },
     {
         id: 19,
-        name: "Batom Líquido Rosa",
+        name: "Batom Líquido Mari Maria",
         category: "batons",
-        price: 35.90,
+        price: 39.90,
         image: "imagens/batom.webp",
         description: "tons de cores vibrantes",
         rating: 4.7,
@@ -236,7 +338,7 @@ const products = [
     },
     {
         id: 20,
-        name: "kit gloss",
+        name: "kit gloss franciny enlke",
         category: "batons",
         price: 99.90,
         image: "imagens/gloss.jpg",
@@ -245,13 +347,30 @@ const products = [
         reviews: 234,
         inStock: true
     },
+    {
+        id: 22,
+        name: "lip honey",
+        category: "batons",
+        price: 57.90,
+        originalPrice: 100.00,
+        image: "imagens/lip.webp",
+        description: "diversos trons",
+        rating: 4.7,
+        reviews: 267,
+        inStock: true,
+        isOffer: true
+    
+       
 
-    // Bases (5 produtos)
+
+    },
+
+    // Bases (5  produto)
     {
         id: 21,
         name: "corretivo franciny",
         category: "bases",
-        price: 68.90,
+        price: 59.90,
         image: "imagens/corretivo.webp",
         description: "Cobertura natural com acabamento HD",
         rating: 4.8,
@@ -262,8 +381,8 @@ const products = [
         id: 22,
         name: "Base wepink",
         category: "bases",
-        price: 42.90,
-        originalPrice: 55.90,
+        price: 49.90,
+        originalPrice: 100.00,
         image: "imagens/base.png",
         description: "Cobertura total para imperfeições",
         rating: 4.7,
@@ -271,11 +390,53 @@ const products = [
         inStock: true,
         isOffer: true
     },
+    { 
+        id: 22,
+        name: "Base franciny",
+        category: "bases",
+        price: 57.90,
+        originalPrice: 100.00,
+        image: "imagens/fran.png",
+        description: "diversos trons",
+        rating: 4.7,
+        reviews: 267,
+        inStock: true,
+        isOffer: true
+
+    },
+    {
+        id: 22,
+        name: "Base boca rosa",
+        category: "bases",
+        price: 30.90,
+        originalPrice: 69.90,
+        image: "imagens/baserosa.jpeg",
+        description: "diversos trons",
+        rating: 4.7,
+        reviews: 267,
+        inStock: true,
+        isOffer: true
+    },
+    {
+        id: 22,
+        name: "Base mari maria",
+        category: "bases",
+        price: 58.90,
+        originalPrice: 100.00,
+        image: "imagens/mari.webp",
+        description: "diversos trons",
+        rating: 4.7,
+        reviews: 267,
+        inStock: true,
+        isOffer: true
+    
+
+    },
     {
         id: 23,
         name: "Primer Matificante",
-        category: "bases",
-        price: 38.90,
+        category: "skincare",
+        price: 200.90,
         image: "imagens/serom.webp",
         description: "Prepara a pele e controla oleosidade",
         rating: 4.6,
@@ -285,8 +446,8 @@ const products = [
     {
         id: 24,
         name: "fixador",
-        category: "bases",
-        price: 45.90,
+        category: "skincare",
+        price: 59.90,
         image: "imagens/bruma.webp",
         description: "Fixa a maquiagem sem alterar a cor",
         rating: 4.8,
@@ -295,14 +456,72 @@ const products = [
     },
     {
         id: 25,
-        name: "BB Cream FPS 30",
-        category: "bases",
+        name: "body cream VF hidratante wepink",
+        category: "hidratante",
         price: 52.90,
         image: "imagens/loção corporal-1.png",
         description: "Hidrata, protege e uniformiza",
         rating: 4.7,
         reviews: 245,
         inStock: true
+    },
+    {
+        id: 25,
+        name: "kit 3 esponjas de maquiaguem",
+        category: "acessórios",
+        price: 90.90,
+        image: "imagens/3.webp",
+        description: "suave e prática",
+        rating: 4.7,
+        reviews: 245,
+        inStock: true
+    },
+    {
+        id: 25,
+        name: "pincel para base",
+        category: "acessórios",
+        price: 77.00,
+        image: "imagens/pincelmari.webp",
+        description: "pincel triangular para base",
+        rating: 4.7,
+        reviews: 245,
+        inStock: true
+    },
+    {
+        id: 25,
+        name: "pincel para iluminador",
+        category: "acessórios",
+        price: 69.90,
+        image: "imagens/pincel3.webp",
+        description: "pincel para iluminador",
+        rating: 4.7,
+        reviews: 245,
+        inStock: true
+    },
+    {
+        id: 25,
+        name: "pincel corretivo e acabamento",
+        category: "acessórios",
+        price: 70.90,
+        image: "imagens/acabamento.webp",
+        description: "pincel para acabamento e corretivo",
+        rating: 4.7,
+        reviews: 245,
+        inStock: true
+    },
+    {
+        id: 25,
+        name: "puffer",
+        category: "acessórios",
+        price: 69.90,
+        image: "imagens/esponjapó.png",
+        description: "puffer para pó",
+        rating: 4.7,
+        reviews: 245,
+        inStock: true
+
+
+
     }
 ];
 

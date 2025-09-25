@@ -59,10 +59,12 @@
                         <span class="hidden md:inline" id="accountText">Minha Conta</span>
                     </button>
                     <button class="flex items-center space-x-1 text-gray-600 hover:text-pink-500 transition-colors">
-                        <span>❤️</span>
-                        <span class="hidden md:inline">Favoritos</span>
-                        <span class="bg-pink-500 text-white text-xs rounded-full px-2 py-1" id="favCount">0</span>
-                    </button>
+  <button class="flex items-center space-x-1 text-gray-600 hover:text-pink-500 transition-colors">
+    <span>❤️</span>
+    <span class="hidden md:inline">Favoritos</span>
+    <span class="bg-pink-500 text-white text-xs rounded-full px-2 py-1" id="favCount">0</span>
+</button>
+              </button>
                     <button id="cartBtn" class="flex items-center space-x-1 text-gray-600 hover:text-pink-500 transition-colors">
                         <span>🛒</span>
                         <span class="hidden md:inline">Carrinho</span>
@@ -78,8 +80,12 @@
                     <a href="#paletas" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Paletas</a>
                     <a href="#rimel" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Rímel</a>
                     <a href="#skincare" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Skincare</a>
-                    <a href="#batons" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Batons</a>
+                    <a href="#gloss" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">gloss</a>
                     <a href="#bases" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Bases</a>
+                     <a href="#perfume" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">perfume</a>
+                     <a href="#hidratante" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">hidratante</a>
+                       <a href="#acessórios" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">acessórios</a>
+                     
                     <a href="#ofertas" class="text-gray-700 hover:text-pink-500 font-medium transition-colors">Ofertas</a>
                 </div>
             </nav>
@@ -108,7 +114,7 @@
                 <div class="text-center">
                     <p class="text-gray-600 mb-2">Não tem conta?</p>
                     <button id="showRegisterBtn" class="text-pink-500 hover:text-pink-600 font-semibold">
-                        Criar Conta Grátis
+                        Criar Conta 
                     </button>
                 </div>
             </div>
@@ -183,11 +189,11 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <div class="text-8xl mb-4">💄</div>
+                    <div class="text-8xl mb-4"></div>
                     <div class="grid grid-cols-3 gap-4 max-w-sm mx-auto">
                         <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center">
                             <div class="text-2xl mb-2">🎨</div>
-                            <div class="text-sm">+500 Produtos</div>
+                            <div class="text-sm">prdutos de qualidade</div>
                         </div>
                         <div class="bg-white bg-opacity-20 rounded-lg p-4 text-center">
                             <div class="text-2xl mb-2">⭐</div>
@@ -217,16 +223,25 @@
                     Rímel
                 </button>
                 <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="skincare">
-                    Skincare
+                    Skincare 
                 </button>
                 <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="batons">
-                    Batons
+                    gloss
                 </button>
                 <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="bases">
                     Bases
+
+                    <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="perfume">
+                    perfume
+
+                    <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="hidratante">
+                    hidratante
+                    <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="acessórios">
+                    acessórios
                 </button>
                 <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-pink-500 transition-colors" data-filter="ofertas">
-                    Em Oferta
+                    oferta 
+                    
                 </button>
             </div>
         </div>
@@ -288,7 +303,7 @@
     <div id="checkoutModal" class="modal">
         <div class="bg-white rounded-2xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold">Finalizar Compra</h3>
+                <h3 class="text-2xl font-bold">Finalizar pedido</h3>
                 <button id="closeCheckoutModal" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
             </div>
             
@@ -316,9 +331,9 @@
                             <input type="text" placeholder="Cidade" class="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
                             <select class="px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
                                 <option>Estado</option>
-                                <option>SP</option>
-                                <option>RJ</option>
-                                <option>MG</option>
+                                <option>rbs</option>
+                                <option>cwb</option>
+                                <option>sc</option>
                             </select>
                         </div>
                     </div>
@@ -397,6 +412,12 @@
                         <li><a href="#" class="hover:text-white transition-colors">Skincare Completo</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Batons & Glosses</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Bases & Corretivos</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">perfumes wepink</a></li>
+          
+                     <li><a href="#" class="hover:text-white transition-colors">hidratante</a></li>
+                    
+                     <li><a href="#" class="hover:text-white transition-colors">acessórios</a></li>
+                    
                     </ul>
                 </div>
                 
@@ -424,7 +445,7 @@
                         </div>
                         <div class="flex items-center">
                             <span class="mr-3">📍</span>
-                            <span>São Paulo, SP - Brasil</span>
+                            <span>curitiba e região -PR Brasil</span>
                         </div>
                         <div class="flex items-center">
                             <span class="mr-3">🕒</span>
